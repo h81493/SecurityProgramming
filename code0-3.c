@@ -2,6 +2,6 @@
 
 int main(void)
 {
-  printf("岬くんかっこいい！最高！\n);
+  printf("岬くんかっこいい！最高！\n");
   return 0;
 }
