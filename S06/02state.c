@@ -12,15 +12,20 @@ int main(void ) {
       case '1':
         in[j] = 1;
         break;
+      case ' ':
+        continue;
       default:
         in[j] = 0xff;
     }
     if (in[j] == 0xff) break;
   }
+/*
   for ( int j=0;j<10;j++) {
-    printf("%d ", in[j]);
+    printf("%d", in[j]);
+    if(j%3==0) printf(" ");
   }
   printf("\n");
+*/
   //State Machine
   int i=0;
   s1:
