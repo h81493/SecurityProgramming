@@ -2,7 +2,10 @@
 
 int main( void) {
   int j;
-  char nishin[8];
+  char nishin[8] = {
+    (char)0,(char)0,(char)0,(char)0,
+    (char)0,(char)0,(char)0,(char)0
+  };
   printf("j = ");
   (void)scanf("%d", &j);
   for(int k = 1;k <= 8;k++) {

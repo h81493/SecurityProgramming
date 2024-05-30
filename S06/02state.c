@@ -1,6 +1,8 @@
 #include <stdio.h>
 int main(void ) {
-  int in[20+1];
+  int in[20+1] = 
+    	{0,0,0,0,0,0,0,0,0,0,
+	 0,0,0,0,0,0,0,0,0,0,0};
   //Input
   for ( int j=0;j<20+1;j++) {
     int c;
