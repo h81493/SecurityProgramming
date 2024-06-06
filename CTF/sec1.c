@@ -4,7 +4,7 @@
 void vuln(char *str) {
 	char str2[] = "beef";
 	char overflowme[8];
-	printf("文字列を入力してください。\n");
+	printf("sec1文字列を入力してください。\n");
 	scanf("%s", overflowme);
 	if( strcmp( str, str2) == 0) {
 		printf("hacked!\n");
