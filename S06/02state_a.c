@@ -7,7 +7,6 @@ int main( void) {
     s1:
     c=getchar();
     if(i++ == 10) goto end;
-    printf("%c",c);
     if(c=='0') {
         printf("0");
         goto s1;
@@ -18,7 +17,6 @@ int main( void) {
     s2:
     c=getchar();
     if(i++ == 10) goto end;
-    printf("%c",c);
     if(c=='0') {
         printf("0");
         goto s1;
@@ -29,7 +27,6 @@ int main( void) {
     s3:
     c=getchar();
     if(i++ == 10) goto end;
-    printf("%c",c);
     if(c=='0') {
         printf("0");
         goto s1;
