@@ -1,8 +1,7 @@
 /*
 *じゃんけん３
-*５回勝負に修正
-*あいこの場合は勝負が付くまでじゃんけんする。
-
+*５回勝負に変更
+*
 *じゃんけん２
 *リターンを待たないでキー入力
 *非カノニカル　ブロッキングI/O　エコーオフ
@@ -46,56 +45,54 @@ static void mode(int on) {//カノニカル モード
 #define OFF 0
 int main(void) {
   int u_hand = 0;
-  int u_win  = 0;
-  int c_win  = 0;
-  int count = 0;
-
+  int u_win = 0; // 人間の勝った回数
+  int c_win = 0; // コンピュータの勝った回数
+  int cnt = 0;
   mode(ON);
-  start:
-  printf("%d回戦\n", ++count);
-  start1:
-  printf("あなたの手　ぐう=0　ちょき=1　ぱあ=2　？　");
-  while(true) {
-    u_hand = getchar();
-    if(u_hand>=(int)'0' && u_hand<=(int)'2') {
-      u_hand = u_hand & 0x0f;
-      break;
+  while(cnt++ < 5) {
+    printf("%d回戦\n",cnt);
+    start:
+    printf("あなたの手　ぐう=0　ちょき=1　ぱあ=2　？　");
+    while(true) {
+      u_hand = getchar();
+      if(u_hand>=(int)'0' && u_hand<=(int)'2') {
+        u_hand = u_hand & 0x0f;
+        break;
+      }
+    }
+    printf("\n");
+    srand((unsigned)time(NULL));
+    int c_hand = 0;
+    c_hand = rand() % 3;
+    printf("コンピュータ　");
+    switch (c_hand) {
+      case 0: printf("ぐう"); break;
+      case 1: printf("ちょき"); break;
+      case 2: printf("ぱあ"); break;
+    }
+    printf("、　あなた　");
+    switch (u_hand) {
+      case 0: printf("ぐう"); break;
+      case 1: printf("ちょき"); break;
+      case 2: printf("ぱあ"); break;
+    }
+    printf("\n");
+    if ( u_hand == c_hand) {
+      printf("あいこです。\n");
+      goto start;
+    } else if ((u_hand + 1) % 3 == c_hand) {
+      printf("あなたの勝ちです！\n");
+      u_win++;
+    } else {
+      printf("あなたの負けです・・・\n");
+      c_win++;
     }
   }
-  printf("\n");
-  srand((unsigned)time(NULL));
-  int c_hand = 0;
-  c_hand = rand() % 3;
-  printf("コンピュータ　");
-  switch (c_hand) {
-    case 0: printf("ぐう"); break;
-    case 1: printf("ちょき"); break;
-    case 2: printf("ぱあ"); break;
-  }
-  printf("、　あなた　");
-  switch (u_hand) {
-    case 0: printf("ぐう"); break;
-    case 1: printf("ちょき"); break;
-    case 2: printf("ぱあ"); break;
-  }
-  printf("\n");
-  if ( u_hand == c_hand) {
-    printf("あいこです。\n");
-    goto start1;
-  } else if ((u_hand + 1) % 3 == c_hand) {
-    printf("あなたの勝ちです！\n");
-    u_win++;
-  } else {
-    printf("あなたの負けです・・・\n");
-    c_win++;
-  }
-  printf("%d戦 %d勝%d負\n",count,u_win,c_win);
-  if(count < 5)
-    goto start;
+  printf("５戦%d勝%d敗  ",u_win,c_win);
   if(u_win > c_win) {
     printf("あなたの勝ちです！\n");
   } else {
-    printf("あなたの負けです・・・\n");
+    printf("あなたの負けです！\n");
   }
   mode(OFF);
   return 0;
