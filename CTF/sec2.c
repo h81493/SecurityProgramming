@@ -1,12 +1,6 @@
-//bof_8-1.c
+//sec2.c
 //gcc sec2.c -g  -fno-stack-protector 
 #include <stdio.h>
-
-/*@unused@*/
-void pwn() {
-  printf( "hacked!\n");
-}
-
 static void vuln( void) {
   char overflowme[48];
   //%[^n] 区切り文字を\nへ。
@@ -15,8 +9,15 @@ static void vuln( void) {
 }
 
 int main(void) {
+  int flag = 0;
   vuln();
-  printf( "failed!\n");
+  if(flag) 
+    goto hack;
+  else
+    printf( "sec2 failed!\n");
+  return 0;
+hack:
+  printf( "sec2 hacked!\n");
   return 0;
 }
 
