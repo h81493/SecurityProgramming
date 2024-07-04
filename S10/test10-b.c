@@ -1,15 +1,19 @@
 //test10-a
-//整数を100000個一気にmallocする。
+//整数をN個一気にmallocする。
 #include <stdio.h>
 #include <malloc.h>
 #include <x86intrin.h>
-#define N 100000
+#define N 1000000
 char c;
 
 int *funca(int i) {
   static int *ptr;
   if(i==0) {
     ptr = (int *)malloc(N*sizeof(int));
+    if(ptr==NULL) {
+      perror( "Out of storage" );
+      abort();
+    }
     printf("1:malloc後停止");
     c=getchar();//malloc後停止
   }
