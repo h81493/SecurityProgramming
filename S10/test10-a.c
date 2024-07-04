@@ -4,10 +4,14 @@
 #include <malloc.h>
 #include <x86intrin.h>
 
+char c;
+
 int *funca(int i) {
   static int *ptr;
   if(i==0) {
     ptr = (int *)malloc(100000*sizeof(int));
+    printf("1:malloc後停止");
+    c=getchar();//malloc後停止
   }
   return(ptr);
 }
@@ -31,12 +35,12 @@ int main(void) {
     ptmp[i] = (int *)malloc(1*sizeof(int));
     ptmp[i][0]=i+1;
   }
+  printf("2:ptmp malloc後停止");
+  c=getchar();//ptmp malloc後停止
 
   ts1 = __rdtsc();
   cycle = (ts1 - ts0);
   printf("  cycle = %14llu\n", cycle);
-  int t;
-  scanf("%d", &t);
 
   int sum1=0;
   for(int i=0;i<100000;i++) {
@@ -53,8 +57,12 @@ int main(void) {
     printf("NG ptmp sum2 = %d\n", sum2);
   }
   free(ptr);
+  printf("3:ptr free後停止");
+  c=getchar();//ptr free後停止
   for(int i=0;i<100000;i++) {
     free(ptmp[i]);
   }
+  printf("4:ptmp free後停止");
+  c=getchar();//ptmp free後停止
   return 0;
 }
