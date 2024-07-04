@@ -5,10 +5,10 @@
 int main(void) {
   int *ptr1;
   int *ptr2;
-  //int型配列を100個確保する。
+  //int型配列をN個確保する。
   int a[N];
   int b[N];
-  //ヒープにint型を100個確保する。
+  //ヒープにint型をN個確保する。
   ptr1 = (int *)malloc(N*sizeof(int));
   ptr2 = (int *)malloc(N*sizeof(int));
   //ヒープのアドレスの表示
@@ -24,5 +24,3 @@ int main(void) {
   free(ptr2);
   return 0;
 }
-
-
