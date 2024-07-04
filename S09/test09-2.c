@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 int main( void) {
-  char str[] = "Hello World!\n";  
+  char str[] = "Security Programming Hello World!\n";  
   asm (
     ".intel_syntax noprefix;"  // I hate AT&T-style
     "mov eax, 1;"              // システムコール番号 (sys_write)
