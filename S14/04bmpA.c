@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <locale.h>
 
 #define W 640
      // 幅
@@ -167,10 +168,13 @@ int main(void)
     }
   }
   char f[] = "04bmp.bmp";
+  setlocale(LC_ALL,"");
 
   // https://www.jpcert.or.jp/sc-rules/c-fio03-c.html
   if ((fp = fopen(f, "wbx")) == NULL) {
-    exit(1);
+    perror("エラー");
+    fprintf(stderr,"'%s' ファイルが開けませんでした\n",f);
+    exit(2);
   }
 
   // データ書き込み

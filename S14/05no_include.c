@@ -1,5 +1,5 @@
 // https://qiita.com/lzpel/items/1ab9469bc24d6ce6b00e
-// gcc -nostdlib no_include.c
+// gcc -static -nostdlib no_include.c
 void _start(void){
    const char mes[] = "hello, world\n";
    __asm __volatile(

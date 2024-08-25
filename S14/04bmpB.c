@@ -1,5 +1,12 @@
+//Color Bar
+//04bmp.c
+//
 #include <stdio.h>
 #include <stdlib.h>
+#include <locale.h>
+#include <libintl.h>
+#include <errno.h>
+#include <error.h>
 
 #define W 640
      // 幅
@@ -8,12 +15,19 @@
 #define Wb (3*W)
      // 幅バイト
 
-int main(void)
+
+#define LOCALEDIR "/usr/share/locale-langpack"
+#define PACKAGE "coreutils"
+
+int main(int argc, char**argv)
 {
   FILE* fp;
   char header[54] = {};         // 管理情報を格納する
   char image[Wb*H] = {};         // 画像データを格納する(3×W8×H8)
 
+  setlocale(LC_ALL,"");
+  bindtextdomain (PACKAGE, LOCALEDIR);
+  textdomain (PACKAGE);
   // 管理情報を作成
   header[0] = 66;
   header[1] = 77;
@@ -166,11 +180,14 @@ int main(void)
       }
     }
   }
-  char f[] = "04bmp.bmp";
 
+  char f[] = "04bmp.bmp";
+  char s[1024];
+  sprintf(s,"'%s'",f);
   // https://www.jpcert.or.jp/sc-rules/c-fio03-c.html
   if ((fp = fopen(f, "wbx")) == NULL) {
-    exit(1);
+    //https://qiita.com/suto3/items/e3dd49e33c08e3f583dd
+    error(EXIT_FAILURE, errno, gettext("cannot open %s for writing"), s);
   }
 
   // データ書き込み
@@ -179,6 +196,6 @@ int main(void)
 
   fclose(fp);
 
-  return 0;
+  return EXIT_SUCCESS;
 }
 
