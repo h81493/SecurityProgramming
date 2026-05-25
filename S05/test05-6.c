@@ -6,7 +6,7 @@ int main(void) {
   int u_hand;
   printf("あなたの手　ぐう=0　ちょき=1　ぱあ=2　？　");
   (void)scanf("%d", &u_hand);
-  srand((unsigned)time(NULL));
+  //srand((unsigned)time(NULL));
   int c_hand = rand() % 3;
 
   printf("コンピュータ　");
