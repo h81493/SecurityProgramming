@@ -1,0 +1,89 @@
+<svg width="680" height="710" viewBox="0 0 680 710" xmlns="http://www.w3.org/2000/svg">
+  <title>バブルソートのフローチャート</title>
+  <desc>条件判断をひし形で表したバブルソートのフローチャート</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="680" height="710" fill="white"/>
+
+  <!-- START -->
+  <rect x="245" y="20" width="190" height="44" rx="22" fill="#D3D1C7" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text font-family="sans-serif" font-size="14" font-weight="500" x="340" y="42" text-anchor="middle" dominant-baseline="central" fill="#2C2C2A">bubbleSort(b, n)</text>
+
+  <line x1="340" y1="64" x2="340" y2="96" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- i = 0 -->
+  <rect x="215" y="96" width="250" height="44" rx="8" fill="#9FE1CB" stroke="#0F6E56" stroke-width="0.5"/>
+  <text font-family="sans-serif" font-size="14" font-weight="500" x="340" y="118" text-anchor="middle" dominant-baseline="central" fill="#085041">i = 0　外側ループ初期化</text>
+
+  <line x1="340" y1="140" x2="340" y2="172" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 外側条件 ひし形 -->
+  <polygon points="340,172 470,204 340,236 210,204" fill="#FAC775" stroke="#854F0B" stroke-width="0.5"/>
+  <text font-family="sans-serif" font-size="14" font-weight="500" x="340" y="204" text-anchor="middle" dominant-baseline="central" fill="#412402">i &lt; n-1 ?</text>
+
+  <!-- No → 終了 -->
+  <line x1="470" y1="204" x2="540" y2="204" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text font-family="sans-serif" font-size="12" x="503" y="196" text-anchor="middle" fill="#5F5E5A">No</text>
+  <rect x="540" y="182" width="88" height="44" rx="22" fill="#D3D1C7" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text font-family="sans-serif" font-size="14" font-weight="500" x="584" y="204" text-anchor="middle" dominant-baseline="central" fill="#2C2C2A">終了</text>
+
+  <!-- Yes ↓ -->
+  <line x1="340" y1="236" x2="340" y2="268" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text font-family="sans-serif" font-size="12" x="352" y="256" fill="#5F5E5A">Yes</text>
+
+  <!-- j = 0 -->
+  <rect x="215" y="268" width="250" height="44" rx="8" fill="#9FE1CB" stroke="#0F6E56" stroke-width="0.5"/>
+  <text font-family="sans-serif" font-size="14" font-weight="500" x="340" y="290" text-anchor="middle" dominant-baseline="central" fill="#085041">j = 0　内側ループ初期化</text>
+
+  <line x1="340" y1="312" x2="340" y2="344" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- 内側条件 ひし形 -->
+  <polygon points="340,344 490,376 340,408 190,376" fill="#FAC775" stroke="#854F0B" stroke-width="0.5"/>
+  <text font-family="sans-serif" font-size="14" font-weight="500" x="340" y="376" text-anchor="middle" dominant-baseline="central" fill="#412402">j &lt; n-1-i ?</text>
+
+  <!-- No → i++ -->
+  <line x1="490" y1="376" x2="548" y2="376" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text font-family="sans-serif" font-size="12" x="517" y="368" text-anchor="middle" fill="#5F5E5A">No</text>
+  <rect x="548" y="354" width="80" height="44" rx="8" fill="#9FE1CB" stroke="#0F6E56" stroke-width="0.5"/>
+  <text font-family="sans-serif" font-size="14" font-weight="500" x="588" y="376" text-anchor="middle" dominant-baseline="central" fill="#085041">i++</text>
+  <!-- i++ → 外側条件へ戻る -->
+  <path d="M628 376 L650 376 L650 170 L470 170" fill="none" stroke="#888780" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+
+  <!-- Yes ↓ -->
+  <line x1="340" y1="408" x2="340" y2="440" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text font-family="sans-serif" font-size="12" x="352" y="428" fill="#5F5E5A">Yes</text>
+
+  <!-- 比較 ひし形 -->
+  <polygon points="340,440 490,472 340,504 190,472" fill="#FAC775" stroke="#854F0B" stroke-width="0.5"/>
+  <text font-family="sans-serif" font-size="14" font-weight="500" x="340" y="472" text-anchor="middle" dominant-baseline="central" fill="#412402">b[j] &gt; b[j+1] ?</text>
+
+  <!-- Yes ↓ swap -->
+  <line x1="340" y1="504" x2="340" y2="536" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text font-family="sans-serif" font-size="12" x="352" y="524" fill="#5F5E5A">Yes</text>
+
+  <!-- swap -->
+  <rect x="160" y="536" width="360" height="68" rx="8" fill="#F5C4B3" stroke="#993C1D" stroke-width="0.5"/>
+  <text font-family="sans-serif" font-size="14" font-weight="500" x="340" y="558" text-anchor="middle" dominant-baseline="central" fill="#712B13">swap</text>
+  <text font-family="sans-serif" font-size="12" x="340" y="578" text-anchor="middle" dominant-baseline="central" fill="#993C1D">tmp=b[j]; b[j]=b[j+1]; b[j+1]=tmp;</text>
+
+  <!-- swap ↓ j++ -->
+  <line x1="340" y1="604" x2="340" y2="644" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- No → j++ 右迂回 -->
+  <path d="M490 472 L560 472 L560 666 L412 666" fill="none" stroke="#888780" stroke-width="1" marker-end="url(#arrow)"/>
+  <text font-family="sans-serif" font-size="12" x="530" y="464" text-anchor="middle" fill="#5F5E5A">No</text>
+
+  <!-- j++ -->
+  <rect x="270" y="644" width="140" height="44" rx="8" fill="#9FE1CB" stroke="#0F6E56" stroke-width="0.5"/>
+  <text font-family="sans-serif" font-size="14" font-weight="500" x="340" y="666" text-anchor="middle" dominant-baseline="central" fill="#085041">j++</text>
+
+  <!-- j++ → 内側条件へ戻る 左回り -->
+  <path d="M270 666 L80 666 L80 376 L188 376" fill="none" stroke="#888780" stroke-width="1" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+
+
+</svg>
