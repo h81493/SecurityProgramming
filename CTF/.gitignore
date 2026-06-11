@@ -1,4 +1,6 @@
 a.out
 input.bin
 .gitignore
+.gdb_history
+peda-session-*.out.txt
 *~
