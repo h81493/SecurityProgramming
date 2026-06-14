@@ -16,4 +16,5 @@ void vuln(char *str) {
 int main() {
 	char string[] = "fish";
 	vuln( string);
+	return -1;
 }
