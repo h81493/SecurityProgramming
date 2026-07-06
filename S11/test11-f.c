@@ -3,9 +3,10 @@
 int main(int argc, char const *argv[])
 {
     int i;
-    for( i=0;i<0x100;i++)
+    for( i=0;i<argc;i++)
     {
-        printf("%c", *(argv[0]+i));
+        printf("%d: %s\n", i, argv[i]);
     }
     return 0;
-} 
+}
+
