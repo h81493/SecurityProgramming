@@ -125,10 +125,10 @@ stateDiagram-v2
 
     MarkSelect --> Playing : 先手/後手を選択
 
-    Playing --> Playing : 手番（人間 or CPU）\n勝敗・引き分けが確定せず、交代
+    Playing --> Playing : 次の手番へ交代
     Playing --> XWin : Xの記号が3つ揃う
     Playing --> OWin : Oの記号が3つ揃う
-    Playing --> Draw : 全マス埋まる、または\nこれ以上誰も勝てないと確定(早期引き分け)
+    Playing --> Draw : 全マス埋まる、または\n早期に引き分けが確定
 
     XWin --> Replay : 結果表示
     OWin --> Replay : 結果表示
@@ -182,8 +182,8 @@ flowchart TD
 
     CheckWin -- Yes --> ShowWin[勝者を表示]
     ShowWin --> AskReplay
-    CheckWin -- No --> CheckDraw{引き分け?\n(全埋まり or 早期確定)}
-    CheckDraw -- Yes --> ShowDraw[引き分けを表示\n(理由に応じ文言変更)]
+    CheckWin -- No --> CheckDraw{"引き分け?\n(全埋まり or 早期確定)"}
+    CheckDraw -- Yes --> ShowDraw["引き分けを表示\n(理由に応じ文言変更)"]
     ShowDraw --> AskReplay
     CheckDraw -- No --> Switch[手番を交代]
     Switch --> DetermineTurn
