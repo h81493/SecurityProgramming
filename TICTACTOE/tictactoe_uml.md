@@ -125,10 +125,10 @@ stateDiagram-v2
 
     MarkSelect --> Playing : 先手/後手を選択
 
-    Playing --> Playing : 次の手番へ交代
     Playing --> XWin : Xの記号が3つ揃う
     Playing --> OWin : Oの記号が3つ揃う
     Playing --> Draw : 全マス埋まる、または\n早期に引き分けが確定
+    note right of Playing : 決着がつくまで\n手番を交代しながら継続
 
     XWin --> Replay : 結果表示
     OWin --> Replay : 結果表示
