@@ -3,6 +3,7 @@
 このリポジトリに含まれるドキュメント・ソースコードの一覧と、読む順番の目安をまとめる。
 
 - リポジトリ: [h81493/SecurityProgramming (TICTACTOE)](https://github.com/h81493/SecurityProgramming/tree/main/TICTACTOE)
+- `README.md`を除く仕様書・解説記事はすべて `DOC/` フォルダ配下に格納されている。
 
 ---
 
@@ -18,10 +19,10 @@
 
 | ファイル | 内容 |
 |---|---|
-| [`tictactoe_spec.md`](tictactoe_spec.md) | 機能仕様書。対戦モード、勝敗・引き分け判定、入力方式、画面表示、内部データ構造（`GameState`）、使用関数一覧などを網羅した中心となる仕様書。 |
-| [`tictactoe_uml.md`](tictactoe_uml.md) | UML仕様書。クラス図・状態遷移図・アクティビティ図・シーケンス図で設計を図示。 |
-| [`tictactoe_画面遷移仕様書.md`](tictactoe_画面遷移仕様書.md) | ユーザーに実際に表示される画面（コンソール出力）の一覧と、画面間の遷移条件をまとめた仕様書。 |
-| [`tictactoe_テストケース仕様書.md`](tictactoe_テストケース仕様書.md) | モード選択・入力バリデーション・勝敗判定・引き分け判定・CPU思考ルーチン・入力方式・画面表示・リグレッションの各観点でのテストケース一覧と実施結果。 |
+| [`tictactoe_spec.md`](DOC/tictactoe_spec.md) | 機能仕様書。対戦モード、勝敗・引き分け判定、入力方式、画面表示、内部データ構造（`GameState`）、使用関数一覧などを網羅した中心となる仕様書。 |
+| [`tictactoe_uml.md`](DOC/tictactoe_uml.md) | UML仕様書。クラス図・状態遷移図・アクティビティ図・シーケンス図で設計を図示。 |
+| [`tictactoe_画面遷移仕様書.md`](DOC/tictactoe_画面遷移仕様書.md) | ユーザーに実際に表示される画面（コンソール出力）の一覧と、画面間の遷移条件をまとめた仕様書。 |
+| [`tictactoe_テストケース仕様書.md`](DOC/tictactoe_テストケース仕様書.md) | モード選択・入力バリデーション・勝敗判定・引き分け判定・CPU思考ルーチン・入力方式・画面表示・リグレッションの各観点でのテストケース一覧と実施結果。 |
 
 ## 3. CPU思考ルーチン（ミニマックス法）の解説
 
@@ -29,17 +30,17 @@
 
 | ファイル | 内容 | 難易度 |
 |---|---|---|
-| [`minimax法の解説.md`](minimax法の解説.md) | ミニマックス法という**アルゴリズムの考え方そのもの**の解説。ゲーム理論的な背景、評価値の設計思想、探索木の具体例など。実装に依存しない一般的な内容。 | 易 |
-| [`getBestMove_マス目の例.md`](getBestMove_マス目の例.md) | 実際のマス目（盤面）を使い、`getBestMove`がどう動くかを具体例で追う。 | 易〜中 |
-| [`getBestMove_解説.md`](getBestMove_解説.md) | `getBestMove`関数の処理の流れを解説（簡易版）。 | 中 |
-| [`getBestMove_詳細解説.md`](getBestMove_詳細解説.md) | `getBestMove`の全変数・呼び出している全関数（`isEmptyCell`, `minimax`, `checkWin`, `checkDraw`等）まで踏み込んだ詳細解説。 | 中〜高 |
-| [`minimax_詳細解説.md`](minimax_詳細解説.md) | `minimax`関数自体の全変数・呼び出し関数・再帰の終了条件/ステップまでの詳細解説。 | 高 |
+| [`minimax法の解説.md`](DOC/minimax法の解説.md) | ミニマックス法という**アルゴリズムの考え方そのもの**の解説。ゲーム理論的な背景、評価値の設計思想、探索木の具体例など。実装に依存しない一般的な内容。 | 易 |
+| [`getBestMove_マス目の例.md`](DOC/getBestMove_マス目の例.md) | 実際のマス目（盤面）を使い、`getBestMove`がどう動くかを具体例で追う。 | 易〜中 |
+| [`getBestMove_解説.md`](DOC/getBestMove_解説.md) | `getBestMove`関数の処理の流れを解説（簡易版）。 | 中 |
+| [`getBestMove_詳細解説.md`](DOC/getBestMove_詳細解説.md) | `getBestMove`の全変数・呼び出している全関数（`isEmptyCell`, `minimax`, `checkWin`, `checkDraw`等）まで踏み込んだ詳細解説。 | 中〜高 |
+| [`minimax_詳細解説.md`](DOC/minimax_詳細解説.md) | `minimax`関数自体の全変数・呼び出し関数・再帰の終了条件/ステップまでの詳細解説。 | 高 |
 
 ## 4. ソースコード全体の補足解説
 
 | ファイル | 内容 |
 |---|---|
-| [`tictactoe_わかりづらい部分の解説.md`](tictactoe_わかりづらい部分の解説.md) | ソースコード全体の中から特に分かりづらい7箇所（`GameState`構造体、`termios`によるrawモード入力、文字コードの変換トリック、バックトラックパターン、早期引き分け判定、画面クリアとメッセージ表示順序、モード別分岐）を抜き出し、登場する変数とあわせて解説。巻末に全変数の一覧表あり。 |
+| [`tictactoe_わかりづらい部分の解説.md`](DOC/tictactoe_わかりづらい部分の解説.md) | ソースコード全体の中から特に分かりづらい7箇所（`GameState`構造体、`termios`によるrawモード入力、文字コードの変換トリック、バックトラックパターン、早期引き分け判定、画面クリアとメッセージ表示順序、モード別分岐）を抜き出し、登場する変数とあわせて解説。巻末に全変数の一覧表あり。 |
 
 ---
 
