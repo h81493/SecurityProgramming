@@ -169,16 +169,28 @@ int main(void)
   char f[] = "04bmp.bmp";
 
   // https://www.jpcert.or.jp/sc-rules/c-fio03-c.html
-  if ((fp = fopen(f, "wbx")) == NULL) {
-    exit(1);
-  }
+  if ((fp = fopen(f, "wbx")) == NULL) 
+    goto error;
 
   // データ書き込み
-  fwrite(header, 54, 1, fp);  // 管理情報
-  fwrite(image, 3*W*H, 1, fp);  // 画像データ
+  if (fwrite(header, 54, 1, fp) != 1)   // 管理情報
+    goto error;
+  if (fwrite(image, 3*W*H, 1, fp) != 1) // 画像データ
+    goto error;
 
-  fclose(fp);
+  if (fclose(fp) == EOF) {
+    fp = NULL;  // 既に閉じたので二重クローズ防止
+    goto error;
+  }
 
-  return 0;
+  return EXIT_SUCCESS;
+
+error:
+
+
+  if (fp != NULL)
+    fclose(fp);
+  return EXIT_FAILURE;
+
 }
 
